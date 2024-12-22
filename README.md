@@ -94,7 +94,7 @@ FLUX.1是由Stable Diffusion创始团队推出的开源AI图像生成模型，�
 
 生成图片案例鉴赏：
 
-<img src="images/铅笔手绘赏析.png" alt="铅笔手绘赏析" style="zoom:25%;" />
+<img src="images/铅笔手绘赏析.png" alt="铅笔手绘赏析" style="zoom:25\%;" />
 
 ### 3.使用ComfyUI API说明
 
