@@ -35,6 +35,8 @@
 
 <img src="images/image-20241222155303751.png" alt="image-20241222155303751" style="zoom:50%;" />
 
+
+
 我们需要先删掉Empty Latent Image节点，再新增用来加载用户上传图像的`Load images`节点和将图像数据转化为潜空间数据（LATENT）的`VAE Encode`节点
 
 #### 2.3高清修复工作流
