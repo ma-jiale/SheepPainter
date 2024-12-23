@@ -10,6 +10,12 @@
 
 新增ComfyUI工作流说明
 
+**2024/12/23更新**
+
+新增使用ComfyUI API的代码
+
+新增使用ComfyUI API与Unity前端通信的代码
+
 ### 1.项目文件说明
 
 ### 2.ComfyUI工作流说明
@@ -90,6 +96,8 @@ FLUX.1是由Stable Diffusion创始团队推出的开源AI图像生成模型，�
 
 这是这个工作流的地址：[pencil sketch](https://openart.ai/workflows/datou/pencil-sketch/jNotO6649m9OxqVzJeBx)
 
+使用这个工作流，我们可以使不会画铅笔手绘或者画得不好的人也可以利用AI"画"让人感到愉悦的手绘风格画
+
 ![image-20241222170240677](images/image-20241222170240677.png)
 
 相较于官方的文生图示例，这个工作流增加了两个`Load Lora`节点来导入Lora模型，如果你不太清楚Lora的工作原理可以参考这篇文章：[LORA详解（史上最全）_lora模型-CSDN博客](https://blog.csdn.net/qq_41475067/article/details/138155486)
@@ -100,7 +108,23 @@ FLUX.1是由Stable Diffusion创始团队推出的开源AI图像生成模型，�
 
 ### 3.使用ComfyUI API说明
 
+利用ComfyUI提供的API，可以让我们AI生成图像的工作流嵌入到我们自己开发的软件中
 
+这里附上ComfyUI官方给的调用API的python脚本例程供大家参考：
+
+**注意**：如果运行例程ComfyUI无响应，请检查网络条件，建议尝试关闭防火墙和代理，切换WIFI等操作，切莫心急。
+
+在调用ConfUI前，请确认在ComfyUI设置里打开开发模式，打开后可以将工作流保存为API导出格式，方便后续使用
+
+<img src="images/image-20241224001443422.png" alt="image-20241224001443422" style="zoom:50%;" />
+
+本项目调用ComfyUI的API的代码部分的实现思路是使用 WebSocket 连接 (ws) 向ComfyUI服务器发送提示 (prompt)，接收服务器生成的图像数据。具体实现细节请看代码文件
 
 ### 4.Unity前端搭建说明
+
+调用ComfyUI的API的基础之上，我在Unity中搭建了一个简单的前端界面，用于上传图片和并生成AI风格化之后的图片。
+
+具体的实现思路是：将用户上传到Unity的图片通过TCP协议发送给python服务器端，再由python服务器端传给ComfyUi服务器生成风格化图片，在经python服务器中转传回Unity前端，目前的代码只实现了前三部分，传回Unity前端部分还未完成。具体实现细节请看代码文件
+
+实现效果请看目录中视频
 
